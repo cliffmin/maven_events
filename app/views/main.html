@@ -1,0 +1,54 @@
+<div>
+    <h1 style="color: darkgrey"><i class="fa fa-rocket"></i> Maven Events</h1>
+    <input type="text" class="form-control" placeholder="Search for... tags, time, type, #">
+    <br/>
+
+    <div ng-controller="MainCtrl">
+        <table class="table table-hover">
+            <tr>
+                <th>Time</th>
+                <th>#</th>
+                <th>Type</th>
+                <th>Tags</th>
+                <th>Description</th>
+
+            </tr>
+            <tr ng-repeat="event in events">
+                <td>{{ event.time}}</td>
+                <td>{{ event.id}}</td>
+                <td>{{ event.type }}</td>
+                <td>{{ event.tags }}</td>
+                <td>{{ event.description }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <!--pagination -->
+        <ul class="pagination" id="pager">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+
+        <!-- Single button -->
+        <div class="btn-group col-xs-4">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                    style="color: cornflowerblue">
+                Download<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="download">
+                <li><a href="#">ASCII</a></li>
+                <li><a href="#">JSON</a></li>
+                <li><a href="#">CSV</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>♥ from the Data-Systems team</p>
+</div>
