@@ -9,5 +9,5 @@ angular.module('mavenApp')
         $scope.login = {
             "firstName": "Johnathon",
             "lastName": "Johnson"
-        }
+        };
     });

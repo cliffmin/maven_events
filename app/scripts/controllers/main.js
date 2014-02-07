@@ -34,6 +34,54 @@ angular.module('mavenApp')
                 type: "Weak Signal",
                 tags: "Signal",
                 description: "An asteroid prevented a strong signal reading."
+            },
+            {
+
+                time: "03:00",
+                id: 4,
+                type: "Weak Signal",
+                tags: "Signal",
+                description: "An asteroid prevented a strong signal reading."
+            },
+            {
+
+                time: "03:00",
+                id: 4,
+                type: "Weak Signal",
+                tags: "Signal",
+                description: "An asteroid prevented a strong signal reading."
+            },
+            {
+
+                time: "03:00",
+                id: 4,
+                type: "Weak Signal",
+                tags: "Signal",
+                description: "An asteroid prevented a strong signal reading."
             }
+//            {
+//
+//                time: "03:00",
+//                id: 4,
+//                type: "Weak Signal",
+//                tags: "Signal",
+//                description: "An asteroid prevented a strong signal reading."
+//            },
+//            {
+//
+//                time: "03:00",
+//                id: 4,
+//                type: "Weak Signal",
+//                tags: "Signal",
+//                description: "An asteroid prevented a strong signal reading."
+//            },
+//            {
+//
+//                time: "03:00",
+//                id: 4,
+//                type: "Weak Signal",
+//                tags: "Signal",
+//                description: "An asteroid prevented a strong signal reading."
+//            }
         ];
     });

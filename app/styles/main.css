@@ -1,8 +1,14 @@
-#main-body {
-
+@charset "UTF-8";
+#main-table {
+    min-height: 340px;
 }
+
+#main-page {
+    min-height: 550px;
+}
+
 #login-header {
-   color: darkgrey;
+    color: darkgrey;
 }
 
 #header {
@@ -30,8 +36,8 @@ body {
 .header,
 .marketing,
 .footer {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 90px;
+    padding-right: 90px;
 }
 
 /* Custom page header */
