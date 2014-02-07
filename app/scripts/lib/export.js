@@ -96,3 +96,6 @@ jQuery.fn.table2CSV = function(options) {
         return true;
     }
 };
+
+
+

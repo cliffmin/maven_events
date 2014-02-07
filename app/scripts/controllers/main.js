@@ -4,7 +4,7 @@ angular.module('mavenApp')
     .controller('MainCtrl', function ($scope) {
         $scope.events = [
             {
-
+                date: "12/5/14",
                 time: "12:45",
                 id: 1,
                 type: "Power Failure",
@@ -13,6 +13,7 @@ angular.module('mavenApp')
             },
             {
 
+                date: "12/5/14",
                 time: "23:00",
                 id: 2,
                 type: "Power Failure",
@@ -21,6 +22,7 @@ angular.module('mavenApp')
             },
             {
 
+                date: "12/5/14",
                 time: "21:00",
                 id: 3,
                 type: "Signal Lost",
@@ -29,6 +31,7 @@ angular.module('mavenApp')
             },
             {
 
+                date: "12/5/14",
                 time: "03:00",
                 id: 4,
                 type: "Weak Signal",
@@ -37,27 +40,21 @@ angular.module('mavenApp')
             },
             {
 
+                date: "12/5/14",
                 time: "03:00",
                 id: 4,
-                type: "Weak Signal",
-                tags: "Signal",
-                description: "An asteroid prevented a strong signal reading."
+                type: "Unknown",
+                tags: "Unknown",
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut."
             },
             {
 
+                date: "12/5/14",
                 time: "03:00",
                 id: 4,
-                type: "Weak Signal",
-                tags: "Signal",
-                description: "An asteroid prevented a strong signal reading."
-            },
-            {
-
-                time: "03:00",
-                id: 4,
-                type: "Weak Signal",
-                tags: "Signal",
-                description: "An asteroid prevented a strong signal reading."
+                type: "Unknown",
+                tags: "Unknown",
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut."
             }
 //            {
 //
