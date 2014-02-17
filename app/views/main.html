@@ -1,58 +1,86 @@
 <div class="container" id="main-page">
-    <h1 style="color: darkgrey"><i class="fa fa-rocket"></i> Maven Events</h1>
 
-
-    <div ng-controller="MainCtrl">
-
-        <input type="text" ng-model="searchText" class="form-control" placeholder="Search for... tags, time, type, #">
-        <br/>
-        <table id="main-table" ng-table="tableParams" class="table table-hover">
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>#</th>
-                <th>Type</th>
-                <th>Tags</th>
-                <th>Description</th>
-
-            </tr>
-            <tr ng-repeat="event in events | filter:searchText | limitTo:9">
-                <td>{{ event.date}}</td>
-                <td>{{ event.time}}</td>
-                <td>{{ event.id}}</td>
-                <td>{{ event.type }}</td>
-                <td>{{ event.tags }}</td>
-                <td>{{ event.description }}</td>
-            </tr>
-        </table>
-    </div>
     <div class="row">
-        <!--pagination -->
-        <ul class="pagination" id="pager">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&raquo;</a></li>
-        </ul>
+        <div ng-controller="MainCtrl" id="main-body" class="col-sm-9">
+            <h1 style="color: darkgrey"><i class="fa fa-rocket"></i> Maven Events</h1>
+            <input type="text" ng-model="searchText" class="form-control"
+                   placeholder="Search for... tags, time, type, #">
+            <br/>
+            <table id="main-table" ng-table="tableParams" class="table table-hover">
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>#</th>
+                    <th>Type</th>
+                    <th>Tags</th>
+                    <th>Description</th>
 
-        <!-- Single button -->
-        <div class="btn-group col-xs-4">
-            <button id="download-button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                    style="color: cornflowerblue">
-                Download<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="download">
-                <li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>
-                <li><a href="#" onclick="getJson()">JSON</a></li>
-            </ul>
+                </tr>
+                <tr ng-repeat="event in events | filter:searchText | limitTo:9">
+                    <td>{{ event.date}}</td>
+                    <td>{{ event.time}}</td>
+                    <td>{{ event.id}}</td>
+                    <td>{{ event.type }}</td>
+                    <td>{{ event.tags }}</td>
+                    <td>{{ event.description }}</td>
+                </tr>
+            </table>
+            <div class="row">
+                <!--pagination -->
+                <ul class="pagination" id="pager">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+
+                <!-- Single button -->
+                <div class="btn-group col-xs-4">
+                    <button id="download-button" type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown"
+                            style="color: cornflowerblue">
+                        Download<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="download">
+                        <li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>
+                        <li><a href="#" onclick="getJson()">JSON</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3" id="side-body">
+            <h3 style="color: darkgrey" text-align="centered">Resources</h3>
+            <hr/>
+            <div id="last-events">
+                <h5>Last Entered Events</h5>
+                <table id="sid-body-table" ng-table="sideTableParams" class="table table-hover">
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr ng-repeat="event in events | filter:searchText | limitTo:3">
+                        <td>{{ event.date}}</td>
+                        <td>{{ event.time}}</td>
+                        <td>{{ event.description }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="side-body-links">
+                <ul>
+                    <li><a href="">Graphs</a></li>
+                    <li><a href="">Popular Tags</a></li>
+                    <li><a href="">Event Listing</a></li>
+                </ul>
+            </div>
         </div>
         <!--end button-->
     </div>
 </div>
 
 <div class="footer" style="padding-left: 90px; padding-right: 90px; height: 90px">
-    <p>♥ from the Data-Systems team</p>
+    <p> From the Data-Systems team</p>
 </div>
