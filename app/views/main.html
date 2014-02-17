@@ -16,7 +16,7 @@
                 <th>Description</th>
 
             </tr>
-            <tr ng-repeat="event in events | filter:searchText">
+            <tr ng-repeat="event in events | filter:searchText | limitTo:9">
                 <td>{{ event.date}}</td>
                 <td>{{ event.time}}</td>
                 <td>{{ event.id}}</td>

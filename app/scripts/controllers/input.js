@@ -5,7 +5,7 @@
 'use strict';
 
 angular.module('mavenApp')
-    .controller('InputCtrl', function ($scope) {
+    .controller('NewEventCtrl', function ($scope) {
         $scope.login = {
             "firstName": "Johnathon",
             "lastName": "Johnson"

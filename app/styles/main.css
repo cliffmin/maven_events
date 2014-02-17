@@ -25,6 +25,11 @@
     color: darkgrey;
 
 }
+input.ng-invalid.ng-dirty {
+    outline: none;
+    border-color: #B20000;
+    box-shadow: 0 0 7px #B20000;
+}
 
 /* Space out content a bit */
 body {

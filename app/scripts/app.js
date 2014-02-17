@@ -13,8 +13,8 @@ angular.module('mavenApp', [
                 controller: 'MainCtrl'
             })
             .when('/input', {
-                templateUrl: 'views/input.html',
-                controller: 'InputCtrl'
+                templateUrl: 'views/newEvent.html',
+                controller: 'NewEventCtrl'
             })
             .otherwise({
                 redirectTo: '/'
