@@ -4,7 +4,8 @@ angular.module('mavenApp', [
         "ngCookies",
         "ngResource",
         "ngSanitize",
-        "ngRoute"
+        "ngRoute",
+        "ngTagsInput"
     ])
     .config(function ($routeProvider) {
         $routeProvider

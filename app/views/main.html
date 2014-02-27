@@ -3,27 +3,41 @@
     <div class="row">
         <div ng-controller="MainCtrl" id="main-body" class="col-sm-9">
             <h1 style="color: darkgrey"><i class="fa fa-rocket"></i> Maven Events</h1>
-            <input type="text" ng-model="searchText" class="form-control"
+            <input type="search" ng-model="searchText" class="form-control"
                    placeholder="Search for... tags, time, type, #">
             <br/>
             <table id="main-table" ng-table="tableParams" class="table table-hover">
                 <tr>
-                    <th>Date</th>
-                    <th>Time</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
                     <th>#</th>
                     <th>Type</th>
                     <th>Tags</th>
+                    <th>Discrete</th>
+                    <th>Source</th>
+                    <th>Orbit Numbers</th>
                     <th>Description</th>
 
                 </tr>
+
+
                 <tr ng-repeat="event in events | filter:searchText | limitTo:9">
-                    <td>{{ event.date}}</td>
-                    <td>{{ event.time}}</td>
-                    <td>{{ event.id}}</td>
+                    <td>{{ event.start_time}}</td>
+                    <td>{{ event.end_time}}</td>
+                    <td>{{ event.event_number}}</td>
                     <td>{{ event.type }}</td>
-                    <td>{{ event.tags }}</td>
+                    <td>
+                        <p ng-repeat="tags in event.tags">{{ tags }}</p>
+                    </td>
+                    <td>{{ event.is_discrete}}</td>
+                    <td>{{ event.source}}</td>
+                    <td>
+                        <p ng-repeat="orbit_numbers in event.orbit_numbers">{{ orbit_numbers}}</p>
+                    </td>
                     <td>{{ event.description }}</td>
                 </tr>
+
+
             </table>
             <div class="row">
                 <!--pagination -->
@@ -58,13 +72,16 @@
                 <h5>Last Entered Events</h5>
                 <table id="sid-body-table" ng-table="sideTableParams" class="table table-hover">
                     <tr>
-                        <th>Date</th>
-                        <th>Time</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>#</th>
                         <th>Description</th>
                     </tr>
-                    <tr ng-repeat="event in events | filter:searchText | limitTo:3">
-                        <td>{{ event.date}}</td>
-                        <td>{{ event.time}}</td>
+                    <!--this is repeat order from the most recent input at the bottom of the array-->
+                    <tr ng-repeat="event in events | orderBy: 'event_number': true | limitTo:3">
+                        <td>{{ event.start_time}}</td>
+                        <td>{{ event.end_time}}</td>
+                        <td>{{ event.event_number}}</td>
                         <td>{{ event.description }}</td>
                     </tr>
                 </table>
@@ -83,4 +100,26 @@
 
 <div class="footer" style="padding-left: 90px; padding-right: 90px; height: 90px">
     <p> From the Data-Systems team</p>
+</div>
+
+
+<div ng-init="friends = [
+    {name:'John', age:25, gender:'boy'},
+    {name:'Jessie', age:30, gender:'girl'},
+    {name:'Johanna', age:28, gender:'girl'},
+    {name:'Joy', age:15, gender:'girl'},
+    {name:'Mary', age:28, gender:'girl'},
+    {name:'Peter', age:95, gender:'boy'},
+    {name:'Sebastian', age:50, gender:'boy'},
+    {name:'Erika', age:27, gender:'girl'},
+    {name:'Patrick', age:40, gender:'boy'},
+    {name:'Samantha', age:60, gender:'girl'}
+  ]">
+    I have {{friends.length}} friends. They are:
+    <input type="search" ng-model="q" placeholder="filter friends..."/>
+    <ul class="example-animate-container">
+        <li class="animate-repeat" ng-repeat="friend in friends | filter:q">
+            [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+        </li>
+    </ul>
 </div>
