@@ -2,7 +2,7 @@
 
 angular.module("mavenApp")
     .controller("MainCtrl", function ($scope,  $filter, ngTableParams) {
-        $scope.events = [
+        var data = [
             {
                 'description': 'test description',
                 'end_time': 'Wed, 19 Feb 2014 22:43:28 GMT',
@@ -24,7 +24,7 @@ angular.module("mavenApp")
                 'event_number': 2,
                 'is_discrete': true,
                 'orbit_numbers': [
-                   3456
+                    3456
                 ],
                 'source': 'test source',
                 'start_time': 'Wed, 20 Feb 2014 22:43:33 GMT',
@@ -39,7 +39,7 @@ angular.module("mavenApp")
                 'event_number': 3,
                 'is_discrete': false,
                 'orbit_numbers': [
-                   9808
+                    9808
                 ],
                 'source': 'test source',
                 'start_time': 'Wed, 21 Feb 2014 22:43:33 GMT',
@@ -63,8 +63,114 @@ angular.module("mavenApp")
                     'test tag'
                 ],
                 'type': 'LTRA'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 5,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    1234
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'LTRA'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 6,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    1234
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'LTRA'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 7,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    1234
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'ioio'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 8,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    1234
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'YTUO'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 9,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    1234
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'WERT'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 10,
+                'is_discrete': false,
+                'orbit_numbers': [
+                   9000
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'LTRA'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 11,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    1234
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'JKLH'
             }
         ];
+        $scope.events = data;
         $scope.tableParams = new ngTableParams({
             page: 1,            // show first page
             count: 10,          // count per page
@@ -72,11 +178,11 @@ angular.module("mavenApp")
                 name: 'asc'     // initial sorting
             }
         }, {
-            total: $scope.events.length, // length of data
+            total: data.length, // length of data
             getData: function($defer, params) {
                 // use build-in angular filter
                 var orderedData = params.sorting() ?
-                    $filter('orderBy')($scope.events.length, params.orderBy()) :
+                    $filter('orderBy')(data, params.orderBy()) :
                     data;
 
                 $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));

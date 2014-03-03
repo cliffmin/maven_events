@@ -1,7 +1,6 @@
-<div class="container" id="main-page">
-
+<div ng-controller="MainCtrl" class="container" id="main-page">
     <div class="row">
-        <div ng-controller="MainCtrl" id="main-body" class="col-sm-9">
+        <div  id="main-body" class="col-sm-9">
             <h1 style="color: darkgrey"><i class="fa fa-rocket"></i> Maven Events</h1>
             <input type="search" ng-model="searchText" class="form-control"
                    placeholder="Search for... tags, time, type, #">
@@ -9,7 +8,7 @@
             <table id="main-table" ng-table="tableParams" class="table table-hover">
                 <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
                 <p><strong>Sorting:</strong> {{tableParams.sorting()|json}}
-                    <tr ng-repeat="event in events | filter:searchText">
+                    <tr ng-repeat="event in $data | filter:searchText ">
                         <td data-title="'Start Date'" sortable="'start_time'">
                             {{ event.start_time }}
                         </td>
@@ -23,19 +22,19 @@
                             {{ event.type }}
                         </td>
                         <td data-title="'Tags'" sortable="'tags'">
-                            <span ng-repeat="tag in event.tags">{{ tag }}</span>
+                            <span ng-repeat="tag in event.tags">{{ tag }}, </span>
                         </td>
                         <td data-title="'Discrete?'" sortable="'is_discrete'">
-                            {{ event.start_time }}
+                            {{ event.is_discrete }}
                         </td>
                         <td data-title="'Source'" sortable="'source'">
-                            {{ event.start_time }}
+                            {{ event.source }}
                         </td>
                         <td data-title="'Orbit Numbers'" sortable="'orbit_numbers'">
                             <span ng-repeat="number in event.orbit_numbers">{{ number }}</span>
                         </td>
                         <td data-title="'Description'" sortable="'description'">
-                            {{ event.description}}
+                            {{ event.description }}
                         </td>
                     </tr>
 
@@ -70,7 +69,7 @@
                         <th>Description</th>
                     </tr>
                     <!--this is repeat order from the most recent input at the bottom of the array-->
-                    <tr ng-repeat="event in events | orderBy: 'event_number': true | limitTo:3">
+                    <tr ng-repeat="event in events| orderBy: 'event_number': true | limitTo:5">
                         <td>{{ event.start_time}}</td>
                         <td>{{ event.end_time}}</td>
                         <td>{{ event.event_number}}</td>
