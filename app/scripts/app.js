@@ -1,11 +1,12 @@
-"use strict";
+'use strict';
 
-angular.module('mavenApp', [
-        "ngCookies",
-        "ngResource",
-        "ngSanitize",
-        "ngRoute",
-        "ngTagsInput"
+angular.module("mavenApp", [
+        'ngCookies',
+        'ngResource',
+        'ngSanitize',
+        'ngRoute',
+        'ngTagsInput', 
+        'ngTable'
     ])
     .config(function ($routeProvider) {
         $routeProvider

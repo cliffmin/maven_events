@@ -7,49 +7,41 @@
                    placeholder="Search for... tags, time, type, #">
             <br/>
             <table id="main-table" ng-table="tableParams" class="table table-hover">
-                <tr>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>#</th>
-                    <th>Type</th>
-                    <th>Tags</th>
-                    <th>Discrete</th>
-                    <th>Source</th>
-                    <th>Orbit Numbers</th>
-                    <th>Description</th>
-
-                </tr>
-
-
-                <tr ng-repeat="event in events | orderBy: 'type'| filter:searchText | limitTo:9">
-                    <td>{{ event.start_time}}</td>
-                    <td>{{ event.end_time}}</td>
-                    <td>{{ event.event_number}}</td>
-                    <td>{{ event.type }}</td>
-                    <td>
-                        <p ng-repeat="tags in event.tags">{{ tags }}</p>
-                    </td>
-                    <td>{{ event.is_discrete}}</td>
-                    <td>{{ event.source}}</td>
-                    <td>
-                        <p ng-repeat="orbit_numbers in event.orbit_numbers">{{ orbit_numbers}}</p>
-                    </td>
-                    <td>{{ event.description }}</td>
-                </tr>
-
+                <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
+                <p><strong>Sorting:</strong> {{tableParams.sorting()|json}}
+                    <tr ng-repeat="event in events | filter:searchText">
+                        <td data-title="'Start Date'" sortable="'start_time'">
+                            {{ event.start_time }}
+                        </td>
+                        <td data-title="'End Date'" sortable="'end_time'">
+                            {{ event.end_time }}
+                        </td>
+                        <td data-title="'#'" sortable="'event_number'">
+                            {{ event.event_number.toString() }}
+                        </td>
+                        <td data-title="'Type'" sortable="'type'">
+                            {{ event.type }}
+                        </td>
+                        <td data-title="'Tags'" sortable="'tags'">
+                            <span ng-repeat="tag in event.tags">{{ tag }}</span>
+                        </td>
+                        <td data-title="'Discrete?'" sortable="'is_discrete'">
+                            {{ event.start_time }}
+                        </td>
+                        <td data-title="'Source'" sortable="'source'">
+                            {{ event.start_time }}
+                        </td>
+                        <td data-title="'Orbit Numbers'" sortable="'orbit_numbers'">
+                            <span ng-repeat="number in event.orbit_numbers">{{ number }}</span>
+                        </td>
+                        <td data-title="'Description'" sortable="'description'">
+                            {{ event.description}}
+                        </td>
+                    </tr>
 
             </table>
             <div class="row">
                 <!--pagination -->
-                <ul class="pagination" id="pager">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
 
                 <!-- Single button -->
                 <div class="btn-group col-xs-4">
@@ -95,6 +87,7 @@
             </div>
         </div>
         <!--end button-->
+
     </div>
 </div>
 
@@ -102,24 +95,3 @@
     <p> From the Data-Systems team</p>
 </div>
 
-
-<div ng-init="friends = [
-    {name:'John', age:25, gender:'boy'},
-    {name:'Jessie', age:30, gender:'girl'},
-    {name:'Johanna', age:28, gender:'girl'},
-    {name:'Joy', age:15, gender:'girl'},
-    {name:'Mary', age:28, gender:'girl'},
-    {name:'Peter', age:95, gender:'boy'},
-    {name:'Sebastian', age:50, gender:'boy'},
-    {name:'Erika', age:27, gender:'girl'},
-    {name:'Patrick', age:40, gender:'boy'},
-    {name:'Samantha', age:60, gender:'girl'}
-  ]">
-    I have {{friends.length}} friends. They are:
-    <input type="search" ng-model="q" placeholder="filter friends..."/>
-    <ul class="example-animate-container">
-        <li class="animate-repeat" ng-repeat="friend in friends | filter:q">
-            [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
-        </li>
-    </ul>
-</div>
