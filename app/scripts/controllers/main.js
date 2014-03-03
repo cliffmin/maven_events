@@ -65,4 +65,5 @@ angular.module('mavenApp')
                 "type": "LTRA"
             }
         ];
+        $scope.sortOrder = 'event_number';
     });

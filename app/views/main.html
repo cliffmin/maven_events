@@ -21,7 +21,7 @@
                 </tr>
 
 
-                <tr ng-repeat="event in events | filter:searchText | limitTo:9">
+                <tr ng-repeat="event in events | orderBy: 'type'| filter:searchText | limitTo:9">
                     <td>{{ event.start_time}}</td>
                     <td>{{ event.end_time}}</td>
                     <td>{{ event.event_number}}</td>
