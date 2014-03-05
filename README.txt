@@ -1,6 +1,8 @@
 Events are read in the following JSON format.
 
      {
+       "firstName": "test first name",
+       "lastName": "test last name",
        "description": "test description",
        "end_time": "2014-03-05T14:12:29.031Z",
        "is_discrete": false,
