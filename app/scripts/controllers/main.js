@@ -175,7 +175,7 @@ angular.module("mavenApp")
             page: 1,            // show first page
             count: 10,          // count per page
             sorting: {
-                name: 'asc'     // initial sorting
+                name: 'event_number'     // initial sorting
             }
         }, {
             total: data.length, // length of data
