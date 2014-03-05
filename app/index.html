@@ -32,8 +32,27 @@
 <!--header-->
 <div id="header" class="header">
     <ul class="nav nav-pills pull-right">
-        <li class="header-text"><a ng-href="#">About</a></li>
-        <li class="header-text"><a ng-href="#">Contact</a></li>
+        <li class="header-text"><a ng-href="#/about">About</a></li>
+        <li class='dropdown' data-dropdown='dropdown'>
+            <a href="#" class="dropdown-toggle">Login</a>
+            <div class='dropdown-menu' id='signin-dropdown'>
+                <form accept-charset="UTF-8" action="/sessions" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" /></div>
+                    <fieldset class='textbox'>
+                        <label id='js-username'>
+                            <span>Username</span>
+                            <input autocomplete="on" id="username" name="username" type="text" />
+                        </label>
+                        <label id='password'>
+                            <span>Passwort</span>
+                            <input id="userpassword" name="userpassword" type="password" />
+                        </label>
+                    </fieldset>
+                    <fieldset class='subchk'>
+                        <input name="commit" type="submit" value="Log In" />
+                    </fieldset>
+                </form>
+            </div>
+        </li>
         <li class="header-text"><a ng-href="#/input">New Event</a></li>
     </ul>
     <!--<h3 class="text-muted">Maven</h3>-->
@@ -98,8 +117,5 @@
 <script src="scripts/lib/ng-table-export.src.js"></script>
 <script src="scripts/lib/ng-table-resizable-columns.js"></script>
 <!-- endbuild -->
-<script>
-    $.backstretch("images/brushed_@2X.png");
-</script>
 </body>
 </html>

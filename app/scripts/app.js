@@ -18,6 +18,10 @@ angular.module("mavenApp", [
                 templateUrl: 'views/newEvent.html',
                 controller: 'NewEventCtrl'
             })
+            .when('/about', {
+                templateUrl: 'views/about.html',
+                controller: 'MainCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
