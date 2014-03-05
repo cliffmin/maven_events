@@ -1,4 +1,4 @@
-<div class="container"><h1 style="color: darkgrey"><i class="fa fa-rocket"></i> New Maven Event</h1>
+<div class="container"><h1 style="color: darkgrey"><i class="fa fa-rocket"></i> Enter New Maven Event</h1>
 
     <div id="login-header" ng-controller="NewEventCtrl">
         <h5>Hello {{ login.firstName }} {{ login.lastName }}!</h5>
@@ -6,64 +6,48 @@
 
     <br/>
 
-    <form ng-submit="addEvent(event, login)" method="post" ng-controller="NewEventCtrl" class="form-horizontal" role="form" name="newEventForm">
+
+    <form ng-submit="addEvent(event, login)" method="post" ng-controller="NewEventCtrl" class="form-horizontal"
+          role="form" name="newEventForm">
+        <h4 style="text-align: left" class="col-xs-4">Description*</h4>
         <textarea required ng-model="event.description" class="form-control" rows="6"
                   placeholder="Description of the event..."></textarea>
         <br/>
 
         <div class="form-group ">
             <div class="row">
-                <h5 style="text-align: center" class="col-xs-3">Date</h5>
-                <h5 style="text-align: center" class="col-xs-3">Time</h5>
-                <h5 style="text-align: center" class="col-xs-3">Type</h5>
-                <h5 style="text-align: center" class="col-xs-3" ng-model="events.tags">Tags</h5>
+                <h5 style="text-align: center" class="col-xs-4">Start Time*</h5>
+                <h5 style="text-align: center" class="col-xs-2">Discrete?*</h5>
+                <h5 style="text-align: center" class="col-xs-2">Type*</h5>
+                <h5 style="text-align: center" class="col-xs-4" ng-model="events.tags">Tags</h5>
             </div>
 
             <div class="row">
 
-                <div class="col-sm-3">
-                    <input required ng-model="event.startDate" ng-pattern="/^\d?\d\/[0-3]?[0-9]\/\d?\d?\d\d$/"
-                           class="form-control" placeholder="Start Date, Separate by '/'">
+                <div class="col-sm-4">
+                    <input required ng-model="event.start_time" ng-pattern=""
+                           class="form-control" placeholder="Start time, Ex: '2014-03-05T14:12:29.031Z'">
                 </div>
 
-                <!--<label for="inputEmail3" class="col-sm-1 control-label">Date</label>-->
-                <div class="col-sm-3">
-                    <input required ng-model="event.startTime" ng-pattern="/^[0-2]?\d:[0-5]?\d:?[0-5]?\d$/"
-                           class="form-control" placeholder="Start time, Separate by ':'">
-                </div>
+                <!--ditching data concatenation for now-->
+                <!--<div class="col-sm-3">-->
+                <!--<input required ng-model="event.startDate" ng-pattern="/^\d?\d\/[0-3]?[0-9]\/\d?\d?\d\d$/"-->
+                <!--class="form-control" placeholder="Start Date, Separate by '/'">-->
+                <!--</div>-->
 
-                <div class="col-sm-3">
-                    <select required ng-model="event.type" class="form-control">
-                        <option value="none" selected="selected">None</option>
-                        <option value="duststorms">Duststorms</option>
-                        <option value="cmeshocks">CMEshocks</option>
-                        <option value="seps">SEPs</option>
-                        <option value="flares">Flares</option>
-                        <option value="other">Other</option>
+                <!--<div class="col-sm-3">-->
+                <!--<input required ng-model="event.startTime" ng-pattern="/^[0-2]?\d:[0-5]?\d:?[0-5]?\d$/"-->
+                <!--class="form-control" placeholder="Start time, Separate by ':'">-->
+                <!--</div>-->
+
+                <div class="col-sm-2">
+                    <select required ng-model="event.is_discrete" class="form-control">
+                        <option value="null" selected="selected">N/A</option>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
                     </select>
                 </div>
-                
-
-                <div class="col-sm-3">
-                    <tags-input ng-model="event.tags" placeholder="Add optional tags...">
-                        <!--<auto-complete source="loadItems($query)"></auto-complete>-->
-                    </tags-input>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-sm-3">
-                    <input required ng-model="event.startDate" ng-pattern="/^\d?\d\/[0-3]?[0-9]\/\d?\d?\d\d$/"
-                           class="form-control" placeholder="Sart Date, Separate by '/'">
-                </div>
-
-                <!--<label for="inputEmail3" class="col-sm-1 control-label">Date</label>-->
-                <div class="col-sm-3">
-                    <input required ng-model="event.startTime" ng-pattern="/^[0-2]?\d:[0-5]?\d:?[0-5]?\d$/"
-                           class="form-control" placeholder="Start time, Separate by ':'">
-                </div>
-
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <select required ng-model="event.type" class="form-control">
                         <option value="none" selected="selected">None</option>
                         <option value="duststorms">Duststorms</option>
@@ -75,14 +59,51 @@
                 </div>
 
 
-                <div class="col-sm-3">
-                    <tags-input ng-model="event.tags" placeholder="Add optional tags...">
+                <div class="col-sm-4">
+                    <tags-input ng-model="event.tags" placeholder="Add optional [tags]...">
                         <!--<auto-complete source="loadItems($query)"></auto-complete>-->
                     </tags-input>
                 </div>
             </div>
 
         </div>
+
+        <div class="row">
+            <h5 style="text-align: center" class="col-xs-4">End Time*</h5>
+            <h5 style="text-align: center" class="col-xs-4">Source*</h5>
+            <h5 style="text-align: center" class="col-xs-4">Orbit Numbers</h5>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <input required ng-model="event.end_time" ng-pattern=""
+                       class="form-control" placeholder="End time, Ex: '2014-03-05T14:12:29.031Z'">
+            </div>
+
+            <!--ditching date concatenation for now-->
+            <!--<div class="col-sm-3">-->
+            <!--<input required ng-model="event.startDate" ng-pattern="/^\d?\d\/[0-3]?[0-9]\/\d?\d?\d\d$/"-->
+            <!--class="form-control" placeholder="Start Date, Separate by '/'">-->
+            <!--</div>-->
+            <!--<div class="col-sm-3">-->
+            <!--<input required ng-model="event.startTime" ng-pattern="/^[0-2]?\d:[0-5]?\d:?[0-5]?\d$/"-->
+            <!--class="form-control" placeholder="Start time, Separate by ':'">-->
+            <!--</div>-->
+
+            <div class="col-sm-4">
+                <input required ng-model="event.source" ng-pattern=""
+                       class="form-control" placeholder="Enter Source">
+            </div>
+
+
+            <div class="col-sm-4">
+                <tags-input ng-model="event.orbit_numbers" placeholder="Add [orbit_numbers]...">
+                    <!--<auto-complete source="loadItems($query)"></auto-complete>-->
+                </tags-input>
+            </div>
+        </div>
+        <br/>
         <br/>
 
         <div class="form-group">
@@ -94,4 +115,9 @@
             </div>
         </div>
     </form>
+</div>
+<br/>
+<br/>
+<div class="footer" style="padding-left: 90px; padding-right: 90px; ">
+    <p>* -> required</p>
 </div>
