@@ -1,17 +1,35 @@
 <div ng-controller="MainCtrl" class="container" id="main-page">
     <div class="row">
         <div id="main-body" class="col-sm-9">
-            <h1 style="color: darkgrey"><i class="fa fa-rocket"></i> Maven Events</h1>
-<span class="col-sm-8"><input type="search" ng-model="searchText" class="form-control"
-                              placeholder="Search for... tags, time, type, #">
-</span>
-            <span class="col-sm-1">
-                <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear
-                    column sorting
-                </button>
-            </span>
+            <div id="main-header" class="row">
+                <h1 style="color: darkgrey"><i class="fa fa-rocket"></i> Maven Events</h1>
+
+
+                <div class="col-sm-7"><input type="search" ng-model="searchText" class="inline form-control"
+                                             placeholder="Search for... tags, time, type, #"></div>
+
+                <div class="col-sm-2">
+                    <button style="color: cornflowerblue" ng-click="tableParams.sorting({})" class="inline btn btn-default">Clear
+                        column sorting
+                    </button>
+                </div>
+
+                <div class="col-sm-2">
+                    <button id="download-button" type="button" class="inline btn btn-default dropdown-toggle pull-right"
+                            data-toggle="dropdown"
+                            style="color: cornflowerblue">
+                        Download<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="download">
+                        <li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>
+                        <li><a href="#" onclick="getJson()">JSON</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
             <br/>
-            <table id="main-table" ng-table="tableParams" class="table table-hover" export-csv="csv">
+            <table id="main-table" ng-table="tableParams" class="table table-hover col-sm-9" export-csv="csv">
                 <tr ng-repeat="event in $data | filter:searchText ">
                     <td data-title="'Start Date'" sortable="'start_time'">
                         {{ event.start_time }}
@@ -43,23 +61,23 @@
                 </tr>
 
             </table>
-            <div class="row">
-                <!--pagination -->
+            <!--<div class="row">-->
+            <!--&lt;!&ndash;pagination &ndash;&gt;-->
 
-                <!-- Single button -->
+            <!--&lt;!&ndash; Single button &ndash;&gt;-->
 
-                <div class="btn-group col-xs-4">
-                    <button id="download-button" type="button" class="btn btn-default dropdown-toggle"
-                            data-toggle="dropdown"
-                            style="color: cornflowerblue">
-                        Download<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="download">
-                        <li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>
-                        <li><a href="#" onclick="getJson()">JSON</a></li>
-                    </ul>
-                </div>
-            </div>
+            <!--<div class="btn-group col-xs-4">-->
+            <!--<button id="download-button" type="button" class="btn btn-default dropdown-toggle"-->
+            <!--data-toggle="dropdown"-->
+            <!--style="color: cornflowerblue">-->
+            <!--Download<span class="caret"></span>-->
+            <!--</button>-->
+            <!--<ul class="dropdown-menu" role="download">-->
+            <!--<li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>-->
+            <!--<li><a href="#" onclick="getJson()">JSON</a></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <!--</div>-->
         </div>
         <div class="col-sm-3" id="side-body">
             <h3 style="color: darkgrey" text-align="centered">Resources</h3>
@@ -94,6 +112,6 @@
 </div>
 
 <div class="footer" style="padding-left: 90px; padding-right: 90px; height: 90px">
-    <p> From the Data-Systems team</p>
+    <p style="color: #808080"> From the Data-Systems team</p>
 </div>
 

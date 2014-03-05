@@ -168,6 +168,66 @@ angular.module("mavenApp")
                     'test tag'
                 ],
                 'type': 'JKLH'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 10,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    9000
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'LTRA'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 10,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    9000
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'LTRA'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 10,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    9000
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'LTRA'
+            },
+            {
+                'description': 'test description',
+                'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
+                'event_number': 10,
+                'is_discrete': false,
+                'orbit_numbers': [
+                    9000
+                ],
+                'source': 'test source',
+                'start_time': 'Wed, 22 Feb 2014 22:43:33 GMT',
+                'tags': [
+                    'test tag'
+                ],
+                'type': 'LTRA'
             }
         ];
         $scope.events = data;
