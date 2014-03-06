@@ -248,4 +248,7 @@ angular.module("mavenApp")
                 $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
             }
         });
+        $scope.submitFeedback = function(feedback){
+            alert(JSON.stringify(feedback))
+        };
     });

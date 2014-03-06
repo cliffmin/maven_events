@@ -34,22 +34,15 @@
     <ul class="nav nav-pills pull-right">
         <li class="header-text"><a ng-href="#/about">About</a></li>
         <li class='dropdown' data-dropdown='dropdown'>
-            <a href="#" class="dropdown-toggle">Login</a>
-            <div class='dropdown-menu' id='signin-dropdown'>
-                <form accept-charset="UTF-8" action="/sessions" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" /></div>
-                    <fieldset class='textbox'>
-                        <label id='js-username'>
-                            <span>Username</span>
-                            <input autocomplete="on" id="username" name="username" type="text" />
-                        </label>
-                        <label id='password'>
-                            <span>Passwort</span>
-                            <input id="userpassword" name="userpassword" type="password" />
-                        </label>
-                    </fieldset>
-                    <fieldset class='subchk'>
-                        <input name="commit" type="submit" value="Log In" />
-                    </fieldset>
+        <li class="dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Contact</a>
+
+            <div ng-controller="MainCtrl" class="dropdown-menu" style="color: dimgrey; padding: 15px; padding-bottom: 0px;">
+                <form ng-submit="submitFeedback(feedback)" method="post" accept-charset="UTF-8">
+                    Bug or Feedback Title:<input required placeholder="A title that is helpful" ng-model="feedback.title" style="margin-bottom: 15px;" type="text" name="name" size="30"/>
+                    Bug or Feedback Description:<textarea required placeholder="Be as accurate as possible so that we can help you!" ng-model="feedback.description" name="feedbackDescription" type="text" id="" style="margin-bottom: 15px" cols="35" rows="5"></textarea>
+                    <input class="btn btn-primary" style="margin-bottom: 10px; clear: left; width: 100%; height: 32px; font-size: 13px;"
+                           type="submit" name="commit" value="Send to team!"/>
                 </form>
             </div>
         </li>
@@ -103,6 +96,7 @@
 <script src="bower_components/momentjs/min/moment.min.js"></script>
 <script src="bower_components/ng-table/ng-table.src.js"></script>
 <script src="bower_components/ng-table/ng-table.js"></script>
+<script src="bower_components/stickymojo/stickyMojo.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

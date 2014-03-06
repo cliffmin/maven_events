@@ -1,121 +1,128 @@
-<div ng-controller="MainCtrl" class="container" id="main-page">
-    <div class="row">
-        <div id="main-body" class="col-sm-9">
-            <div id="main-header" class="row">
-                <h1 style="color: darkgrey"><i class="fa fa-rocket"></i> Maven Events</h1>
+<div id="wrapper">
+    <div ng-controller="MainCtrl" class="container" id="main-page">
+        <div class="row">
+            <div id="main" class="col-sm-9">
+                <div id="main-header" class="row">
+                    <h1 style="color: #808080"><i class="fa fa-rocket"></i><strong>Maven Events</strong></h1>
+                    <br/>
 
 
-                <div class="col-sm-7"><input type="search" ng-model="searchText" class="inline form-control"
-                                             placeholder="Search for... tags, time, type, #"></div>
+                    <div class="col-sm-7"><input type="search" ng-model="searchText" class="inline form-control"
+                                                 placeholder="Search for... tags, time, type, #"></div>
 
-                <div class="col-sm-2">
-                    <button style="color: cornflowerblue" ng-click="tableParams.sorting({})" class="inline btn btn-default">Clear
-                        column sorting
-                    </button>
+                    <div class="col-sm-2">
+                        <button style="color: cornflowerblue" ng-click="tableParams.sorting({})"
+                                class="inline btn btn-default"><i style="padding-right: 5px" class="fa fa-unlock"></i>Clear
+                            column sorting
+                        </button>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <button style="right: 10px; color: cornflowerblue" id="download-button" type="button"
+                                class="inline btn btn-default dropdown-toggle pull-right"
+                                data-toggle="dropdown">
+                            <i style="padding-right: 5px" class="fa fa-download"></i>Download<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="download">
+                            <li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>
+                            <li><a href="#" onclick="getJson()">JSON</a></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="col-sm-2">
-                    <button id="download-button" type="button" class="inline btn btn-default dropdown-toggle pull-right"
-                            data-toggle="dropdown"
-                            style="color: cornflowerblue">
-                        Download<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="download">
-                        <li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>
-                        <li><a href="#" onclick="getJson()">JSON</a></li>
+
+                <br/>
+                <table id="main-table" ng-table="tableParams" class="table table-hover col-sm-9" export-csv="csv">
+                    <tr ng-repeat="event in $data | filter:searchText ">
+                        <td data-title="'Start Date'" sortable="'start_time'">
+                            {{ event.start_time }}
+                        </td>
+                        <td data-title="'End Date'" sortable="'end_time'">
+                            {{ event.end_time }}
+                        </td>
+                        <td id="defaultSort" data-title="'#'" sortable="'event_number'">
+                            {{ event.event_number.toString() }}
+                        </td>
+                        <td data-title="'Type'" sortable="'type'">
+                            {{ event.type }}
+                        </td>
+                        <td data-title="'Tags'" sortable="'tags'">
+                            <span ng-repeat="tag in event.tags">{{ tag }}, </span>
+                        </td>
+                        <td data-title="'Discrete?'" sortable="'is_discrete'">
+                            {{ event.is_discrete }}
+                        </td>
+                        <td data-title="'Source'" sortable="'source'">
+                            {{ event.source }}
+                        </td>
+                        <td data-title="'Orbit Numbers'" sortable="'orbit_numbers'">
+                            <span ng-repeat="number in event.orbit_numbers">{{ number }}</span>
+                        </td>
+                        <td data-title="'Description'" sortable="'description'">
+                            {{ event.description }}
+                        </td>
+                    </tr>
+
+                </table>
+                <!--<div class="row">-->
+                <!--&lt;!&ndash;pagination &ndash;&gt;-->
+
+                <!--&lt;!&ndash; Single button &ndash;&gt;-->
+
+                <!--<div class="btn-group col-xs-4">-->
+                <!--<button id="download-button" type="button" class="btn btn-default dropdown-toggle"-->
+                <!--data-toggle="dropdown"-->
+                <!--style="color: cornflowerblue">-->
+                <!--Download<span class="caret"></span>-->
+                <!--</button>-->
+                <!--<ul class="dropdown-menu" role="download">-->
+                <!--<li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>-->
+                <!--<li><a href="#" onclick="getJson()">JSON</a></li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+            <div class="col-sm-3" id="sidebar">
+                <h3 style="color: #808080" text-align="centered">Resources</h3>
+                <hr/>
+                <div id="last-events">
+                    <h5>Last Entered Events</h5>
+                    <table id="sid-body-table" ng-table="sideTableParams" class="table table-hover">
+                        <tr>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Description</th>
+                        </tr>
+                        <!--this is repeat order from the most recent input at the bottom of the array-->
+                        <tr ng-repeat="event in events| orderBy: 'event_number': true | limitTo:5">
+                            <td>{{ event.start_time}}</td>
+                            <td>{{ event.end_time}}</td>
+                            <td>{{ event.description }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="side-body-links">
+                    <ul>
+                        <li><a href="">Graphs</a></li>
+                        <li><a href="">Popular Tags</a></li>
+                        <li><a href="">Event Listing</a></li>
                     </ul>
                 </div>
             </div>
+            <!--end button-->
 
-
-            <br/>
-            <table id="main-table" ng-table="tableParams" class="table table-hover col-sm-9" export-csv="csv">
-                <tr ng-repeat="event in $data | filter:searchText ">
-                    <td data-title="'Start Date'" sortable="'start_time'">
-                        {{ event.start_time }}
-                    </td>
-                    <td data-title="'End Date'" sortable="'end_time'">
-                        {{ event.end_time }}
-                    </td>
-                    <td id="defaultSort" data-title="'#'" sortable="'event_number'">
-                        {{ event.event_number.toString() }}
-                    </td>
-                    <td data-title="'Type'" sortable="'type'">
-                        {{ event.type }}
-                    </td>
-                    <td data-title="'Tags'" sortable="'tags'">
-                        <span ng-repeat="tag in event.tags">{{ tag }}, </span>
-                    </td>
-                    <td data-title="'Discrete?'" sortable="'is_discrete'">
-                        {{ event.is_discrete }}
-                    </td>
-                    <td data-title="'Source'" sortable="'source'">
-                        {{ event.source }}
-                    </td>
-                    <td data-title="'Orbit Numbers'" sortable="'orbit_numbers'">
-                        <span ng-repeat="number in event.orbit_numbers">{{ number }}</span>
-                    </td>
-                    <td data-title="'Description'" sortable="'description'">
-                        {{ event.description }}
-                    </td>
-                </tr>
-
-            </table>
-            <!--<div class="row">-->
-            <!--&lt;!&ndash;pagination &ndash;&gt;-->
-
-            <!--&lt;!&ndash; Single button &ndash;&gt;-->
-
-            <!--<div class="btn-group col-xs-4">-->
-            <!--<button id="download-button" type="button" class="btn btn-default dropdown-toggle"-->
-            <!--data-toggle="dropdown"-->
-            <!--style="color: cornflowerblue">-->
-            <!--Download<span class="caret"></span>-->
-            <!--</button>-->
-            <!--<ul class="dropdown-menu" role="download">-->
-            <!--<li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>-->
-            <!--<li><a href="#" onclick="getJson()">JSON</a></li>-->
-            <!--</ul>-->
-            <!--</div>-->
-            <!--</div>-->
         </div>
-        <div class="col-sm-3" id="side-body">
-            <h3 style="color: darkgrey" text-align="centered">Resources</h3>
-            <hr/>
-            <div id="last-events">
-                <h5>Last Entered Events</h5>
-                <table id="sid-body-table" ng-table="sideTableParams" class="table table-hover">
-                    <tr>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Description</th>
-                    </tr>
-                    <!--this is repeat order from the most recent input at the bottom of the array-->
-                    <tr ng-repeat="event in events| orderBy: 'event_number': true | limitTo:5">
-                        <td>{{ event.start_time}}</td>
-                        <td>{{ event.end_time}}</td>
-                        <td>{{ event.description }}</td>
-                    </tr>
-                </table>
-            </div>
-            <div id="side-body-links">
-                <ul>
-                    <li><a href="">Graphs</a></li>
-                    <li><a href="">Popular Tags</a></li>
-                    <li><a href="">Event Listing</a></li>
-                </ul>
-            </div>
-        </div>
-        <!--end button-->
-
     </div>
 </div>
-
-<div class="footer" style="padding-left: 90px; padding-right: 90px; height: 90px">
+<div id="footer" class="container-fluid" style="padding-left: 90px; padding-right: 90px; height: 90px">
     <p style="color: #808080"> From the Data-Systems team</p>
 </div>
 <!--our backdrop -->
 <script>
     $.backstretch("images/brushed_@2X.png");
 </script>
-
+<script>
+    $(document).ready(function () {
+        $('#sidebar').stickyMojo({footerID: '#footer', contentID: '#main'});
+    });
+</script>
