@@ -79,9 +79,9 @@ input.ng-invalid.ng-dirty {
 
 
 /* Space out content a bit */
-body {
-    padding: 10px !important;
-}
+/*body {*/
+    /*padding: 10px !important;*/
+/*}*/
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .footer {
@@ -176,7 +176,6 @@ body {
     float: right; /* float right for a right aligned sidebar */
 }
 #footer {
-    width: 100%;
     clear:both;
     background-color: transparent;
     height: 300px;
@@ -188,7 +187,7 @@ body {
     border-top: 2px solid #d3d3d3;
 }
 #wrapper {
-    width: 1300px; /* MUST HAVE WIDTH SET, should be the sidebar width + main width */
+    width: 1150px; /* MUST HAVE WIDTH SET, should be the sidebar width + main width */
     margin-left: auto;
     margin-right: auto;
 }
