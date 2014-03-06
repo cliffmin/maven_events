@@ -164,8 +164,8 @@ body {
 }
 #main {
     width:800px;
-    height: 1300px; /*can be anything, just should make sure it is taller than the sidebar*/
-    padding: 25px;
+    height: 150px; /*can be anything, just should make sure it is taller than the sidebar*/
+    padding-right: 70px;
     float: left;
     background-color: transparent;
 }

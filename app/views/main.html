@@ -1,18 +1,18 @@
 <div id="wrapper">
     <div ng-controller="MainCtrl" class="container" id="main-page">
         <div class="row">
-            <div id="main" class="col-sm-9">
-                <div id="main-header" class="row">
+            <div id="main-content" class="col-sm-8">
+                <div id="main" class="row">
                     <h1 style="color: #808080"><i class="fa fa-rocket"></i><strong>Maven Events</strong></h1>
                     <br/>
 
 
-                    <div class="col-sm-7"><input type="search" ng-model="searchText" class="inline form-control"
+                    <div class="col-sm-6"><input type="search" ng-model="searchText" class="inline form-control"
                                                  placeholder="Search for... tags, time, type, #"></div>
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <button style="color: cornflowerblue" ng-click="tableParams.sorting({})"
-                                class="inline btn btn-default"><i style="padding-right: 5px" class="fa fa-unlock"></i>Clear
+                                class="inline btn btn-default"><i style="padding-right: 10px" class="fa fa-unlock"></i>Clear
                             column sorting
                         </button>
                     </div>
@@ -32,7 +32,7 @@
 
 
                 <br/>
-                <table id="main-table" ng-table="tableParams" class="table table-hover col-sm-9" export-csv="csv">
+                <table id="main-table" ng-table="tableParams" class="table table-hover col-sm-8" export-csv="csv">
                     <tr ng-repeat="event in $data | filter:searchText ">
                         <td data-title="'Start Date'" sortable="'start_time'">
                             {{ event.start_time }}
