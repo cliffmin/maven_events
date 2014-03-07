@@ -120,7 +120,7 @@ input.ng-invalid.ng-dirty {
 /* Customize container */
 @media (min-width: 768px) {
     .container {
-        max-width: 1200px;
+        max-width: 1600px;
     }
 }
 
@@ -173,15 +173,18 @@ body {
     margin:0;
     padding:0;
 }
+#main-content {
+   width: 850px;
+}
 #main {
-    width:800px;
+    width:850px;
     height: 150px; /*can be anything, just should make sure it is taller than the sidebar*/
     padding-right: 70px;
     float: left;
     background-color: transparent;
 }
 #sidebar {
-    width: 350px;
+    width: 300px;
     right: 122px;
     background-color: #f5f5f5;
     min-height: 250px;
@@ -201,7 +204,7 @@ body {
     border-top: 2px solid #d3d3d3;
 }
 #wrapper {
-    width: 1150px; /* MUST HAVE WIDTH SET, should be the sidebar width + main width */
+    width: 1250px; /* MUST HAVE WIDTH SET, should be the sidebar width + main width */
     margin-left: auto;
     margin-right: auto;
 }

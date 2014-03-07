@@ -50,8 +50,7 @@
                         </td>
                         <td data-title="'Tags'" sortable="'tags'">
                             <span ng-repeat="tag in event.tags"><a class="event-link"
-                                                                   href="#/show/{{ event.event_number }}">{{ tag
-                                }}, </a></span>
+                                                                   href="#/show/{{ event.event_number }}">{{ tag }}, </a></span>
                         </td>
                         <td data-title="'Discrete?'" sortable="'is_discrete'">
                             <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.is_discrete }}</a>
@@ -90,7 +89,7 @@
                             </td>
                             <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.end_time }}</a>
                             </td>
-                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description }}</a>
+                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description | characters:50}}</a>
                             </td>
                         </tr>
                     </table>

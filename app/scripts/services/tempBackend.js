@@ -220,7 +220,7 @@ angular.module('mavenApp')
                 'type': 'LTRA'
             },
             {
-                'description': 'test description',
+                'description': 'test description alskjdflksa fsa dlkfjas lkdfjlaskjdf ;laskjdf asdfjlksajdf alsdkjfklsa jdflasdjfkl;asj dflasjd;flkajsd',
                 'end_time': 'Wed, 22 Feb 2014 22:44:03 GMT',
                 'event_number': 10,
                 'is_discrete': false,

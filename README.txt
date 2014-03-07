@@ -17,6 +17,9 @@ Events are read in the following JSON format.
      }
 
      having trouble with the arrays, they get passed as strings
+     popular tags feature
+     better filter
+     better show layout
 
 
 http://www.9lessons.info/2013/08/angularjs-tutorial-restful.html //for guide on how to recieve JSON data
