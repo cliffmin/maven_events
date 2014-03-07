@@ -5,6 +5,9 @@
     width: 100%;
     text-decoration: none;
 }
+.show-headers{
+   color: cornflowerblue;
+}
 
 @charset "UTF-8";
 #main-table {

@@ -35,61 +35,50 @@
                 <table id="main-table" ng-table="tableParams" class="table table-hover col-sm-8" export-csv="csv">
 
                     <tr ng-repeat="event in $data | filter:searchText ">
-                            <td data-title="'Start Date'" sortable="'start_time'">
-                                <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.start_time }}</a>
-                            </td>
-                            <td data-title="'End Date'" sortable="'end_time'">
-                                <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.end_time }}</a>
-                            </td>
-                            <td id="defaultSort" data-title="'#'" sortable="'event_number'">
-                                <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.event_number.toString() }}</a>
-                            </td>
-                            <td data-title="'Type'" sortable="'type'">
-                                <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.type }}</a>
-                            </td>
-                            <td data-title="'Tags'" sortable="'tags'">
-                                <span ng-repeat="tag in event.tags"><a class="event-link" href="#/show/{{ event.event_number }}">{{ tag }}, </a></span>
-                            </td>
-                            <td data-title="'Discrete?'" sortable="'is_discrete'">
-                                <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.is_discrete }}</a>
-                            </td>
-                            <td data-title="'Source'" sortable="'source'">
-                                <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.source }}</a>
-                            </td>
-                            <td data-title="'Orbit Numbers'" sortable="'orbit_numbers'">
-                                <span ng-repeat="number in event.orbit_numbers"><a class="event-link" href="#/show/{{ event.event_number }}">{{ number }}</a></span>
-                            </td>
-                            <td data-title="'Description'" sortable="'description'">
-                                <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description | characters:80 }}</a>
-                            </td>
+                        <td data-title="'Start Date'" sortable="'start_time'">
+                            <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.start_time }}</a>
+                        </td>
+                        <td data-title="'End Date'" sortable="'end_time'">
+                            <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.end_time }}</a>
+                        </td>
+                        <td data-title="'#'" sortable="'event_number'">
+                            <a class="event-link" href="#/show/{{ event.event_number }}">{{
+                                event.event_number.toString() }}</a>
+                        </td>
+                        <td data-title="'Type'" sortable="'type'">
+                            <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.type }}</a>
+                        </td>
+                        <td data-title="'Tags'" sortable="'tags'">
+                            <span ng-repeat="tag in event.tags"><a class="event-link"
+                                                                   href="#/show/{{ event.event_number }}">{{ tag
+                                }}, </a></span>
+                        </td>
+                        <td data-title="'Discrete?'" sortable="'is_discrete'">
+                            <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.is_discrete }}</a>
+                        </td>
+                        <td data-title="'Source'" sortable="'source'">
+                            <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.source }}</a>
+                        </td>
+                        <td data-title="'Orbit Numbers'" sortable="'orbit_numbers'">
+                            <span ng-repeat="number in event.orbit_numbers"><a class="event-link"
+                                                                               href="#/show/{{ event.event_number }}">{{
+                                number }}</a></span>
+                        </td>
+                        <td data-title="'Description'" sortable="'description'">
+                            <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description |
+                                characters:80 }}</a>
+                        </td>
                     </tr>
 
 
                 </table>
-                <!--<div class="row">-->
-                <!--&lt;!&ndash;pagination &ndash;&gt;-->
-
-                <!--&lt;!&ndash; Single button &ndash;&gt;-->
-
-                <!--<div class="btn-group col-xs-4">-->
-                <!--<button id="download-button" type="button" class="btn btn-default dropdown-toggle"-->
-                <!--data-toggle="dropdown"-->
-                <!--style="color: cornflowerblue">-->
-                <!--Download<span class="caret"></span>-->
-                <!--</button>-->
-                <!--<ul class="dropdown-menu" role="download">-->
-                <!--<li><a href="#" onclick="$('#main-table').table2CSV()">CSV</a></li>-->
-                <!--<li><a href="#" onclick="getJson()">JSON</a></li>-->
-                <!--</ul>-->
-                <!--</div>-->
-                <!--</div>-->
             </div>
             <div class="col-sm-3" id="sidebar">
                 <h3 style="color: #808080" text-align="centered">Resources</h3>
                 <hr/>
                 <div id="last-events">
                     <h5>Last Entered Events</h5>
-                    <table id="sid-body-table" ng-table="sideTableParams" class="table table-hover">
+                    <table id="sid-body-table" class="table table-hover">
                         <tr>
                             <th>Start Date</th>
                             <th>End Date</th>
@@ -97,9 +86,12 @@
                         </tr>
                         <!--this is repeat order from the most recent input at the bottom of the array-->
                         <tr ng-repeat="event in events| orderBy: 'event_number': true | limitTo:5">
-                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.start_time }}</a></td>
-                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.end_time }}</a></td>
-                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description }}</a></td>
+                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.start_time }}</a>
+                            </td>
+                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.end_time }}</a>
+                            </td>
+                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description }}</a>
+                            </td>
                         </tr>
                     </table>
                 </div>

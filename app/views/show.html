@@ -1,19 +1,30 @@
 <div id="show-wrapper" class="container" ng-controller="ShowCtrl">
-    <h3>Event Number: {{ event.event_number}}</h3>
+    <h3 class="show-headers">Event Number: {{ event.event_number}}</h3>
 
     <div class="row jumbotron col-xs-8" style="text-align: left"><h2>{{ event.description }}</h2></div>
     <div class="col-xs-8 row">
         <table class="table">
-            <td data-title="Start Time">{{ event.start_time}}</td>
-            <td data-title="End Time">{{ event.end_time}}</td>
+            <tr class="show-headers">
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Source</th>
+                <th>Discrete?</th>
+                <th>Orbit Numbers</th>
+                <th>Tags</th>
+            </tr>
+            <tr>
+                <td data-title="Start Time"><h4>{{ event.start_time}}</h4></td>
+                <td data-title="End Time"><h4>{{ event.end_time}}</h4></td>
 
-            <td data-title="Source">{{ event.source}}</td>
+                <td data-title="Source"><h4>{{ event.source}}</h4></td>
 
-            <td data-title="Discrete?">{{ event.is_discrete}}</td>
+                <td data-title="Discrete?"><h4>{{ event.is_discrete}}</h4></td>
 
-            <td data-title="Orbit Numbers"><p ng-repeat="orbit_numbers in event.orbit_numbers">{{ orbit_numbers }}</p></td>
+                <td data-title="Orbit Numbers"><h4 ng-repeat="orbit_numbers in event.orbit_numbers">{{ orbit_numbers
+                    }}</h4></td>
 
-            <td data-title="tags"><p ng-repeat="tags in event.tags">{{ tags }}</p></td>
+                <td data-title="tags"><h4 ng-repeat="tags in event.tags">{{ tags }}</h4></td>
+            </tr>
 
         </table>
     </div>
