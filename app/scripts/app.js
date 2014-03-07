@@ -6,7 +6,8 @@ angular.module("mavenApp", [
         'ngSanitize',
         'ngRoute',
         'ngTagsInput', 
-        'ngTable'
+        'ngTable',
+        'truncate'
     ])
     .config(function ($routeProvider) {
         $routeProvider

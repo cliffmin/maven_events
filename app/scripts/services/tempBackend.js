@@ -9,7 +9,7 @@ angular.module('mavenApp')
     .service('tempBackend', function () {
         var data = [
             {
-                'description': 'test description looooooooooooo and loooooong loooooong and lonooooooonger',
+                'description': 'test description looooooooooooo and loooooong loooooong and lonooooooonger asdflkasdfsa fasd fas dfas df as df sa dfsadfa sdf sa df',
                 'end_time': 'Wed, 19 Feb 2014 22:43:28 GMT',
                 'event_number': 1,
                 'is_discrete': false,

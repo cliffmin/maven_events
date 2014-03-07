@@ -60,7 +60,7 @@
                                 <span ng-repeat="number in event.orbit_numbers"><a class="event-link" href="#/show/{{ event.event_number }}">{{ number }}</a></span>
                             </td>
                             <td data-title="'Description'" sortable="'description'">
-                                <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description }}</a>
+                                <a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description | characters:80 }}</a>
                             </td>
                     </tr>
 
@@ -97,9 +97,9 @@
                         </tr>
                         <!--this is repeat order from the most recent input at the bottom of the array-->
                         <tr ng-repeat="event in events| orderBy: 'event_number': true | limitTo:5">
-                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.start_time}}</a></td>
-                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.end_time}}</a></td>
-                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description}}</a></td>
+                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.start_time }}</a></td>
+                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.end_time }}</a></td>
+                            <td><a class="event-link" href="#/show/{{ event.event_number }}">{{ event.description }}</a></td>
                         </tr>
                     </table>
                 </div>
