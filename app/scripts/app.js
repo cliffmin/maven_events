@@ -22,6 +22,10 @@ angular.module("mavenApp", [
                 templateUrl: 'views/about.html',
                 controller: 'MainCtrl'
             })
+            .when('/show/:eventId', {
+                templateUrl: 'views/show.html',
+                controller: 'ShowCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });

@@ -1,0 +1,25 @@
+<div id="show-wrapper" class="container" ng-controller="ShowCtrl">
+    <h3>Event Number: {{ event.event_number}}</h3>
+
+    <div class="row jumbotron col-xs-8" style="text-align: left"><h2>{{ event.description }}</h2></div>
+    <div class="col-xs-8 row">
+        <table class="table">
+            <td data-title="Start Time">{{ event.start_time}}</td>
+            <td data-title="End Time">{{ event.end_time}}</td>
+
+            <td data-title="Source">{{ event.source}}</td>
+
+            <td data-title="Discrete?">{{ event.is_discrete}}</td>
+
+            <td data-title="Orbit Numbers"><p ng-repeat="orbit_numbers in event.orbit_numbers">{{ orbit_numbers }}</p></td>
+
+            <td data-title="tags"><p ng-repeat="tags in event.tags">{{ tags }}</p></td>
+
+        </table>
+    </div>
+    <!--our back drop-->
+</div>
+<script>
+    $.backstretch("images/brushed_@2X.png");
+</script>
+
