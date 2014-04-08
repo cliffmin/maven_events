@@ -4,10 +4,17 @@
  */
 
 angular.module('mavenApp')
-    .controller('ShowCtrl', function ($scope, tempBackend, $route, $routeParams) {
+    .controller('ShowCtrl', function ($scope, tempBackend, $route, $routeParams, eventData) {
+        eventData.getEvent().then(
+            function (event) {
+                $scope.events = event.events;
+                $scope.event = $scope.events[$routeParams.eventId - 1]
+            },
+            function (statusCode) {
+                console.log(statusCode);
+            });
+        $scope.addSuccessSwitch = true;
         $scope.params = $routeParams;
-        $scope.data = tempBackend.getData();
-        $scope.event = $scope.data[$routeParams.eventId - 1]
     });
 
 
